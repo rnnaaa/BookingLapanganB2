@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>BadmintonPro - Daftar Akun</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <link rel="stylesheet" href="register.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="auth-container">
+        <div class="logo">
+          <i class="fas fa-table-tennis-paddle-ball"></i>
+          <h1>BadmintonPro</h1>
+          <p>Sistem Booking Lapangan Badminton</p>
+        </div>
+
+        <!-- Form Register -->
+        <div id="registerForm" class="auth-form">
+          <h2 class="form-title">Daftar Akun Baru</h2>
+
+          <div id="registerAlert" class="alert alert-danger d-none" role="alert">
+            <!-- Pesan error akan ditampilkan di sini -->
+          </div>
+
+          <form id="registerFormElement">
+            <div class="mb-3">
+              <label for="registerName" class="form-label">Nama Lengkap</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                <input type="text" class="form-control with-icon" id="registerName" placeholder="Masukkan nama lengkap" required />
+              </div>
+              <div class="invalid-feedback" id="nameFeedback">Nama harus minimal 3 karakter</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="registerPhone" class="form-label">Nomor HP</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                <input type="tel" class="form-control with-icon" id="registerPhone" placeholder="Contoh: 08123456789" required />
+              </div>
+              <div class="invalid-feedback" id="phoneFeedback">Format nomor HP tidak valid (contoh: 08123456789)</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="registerJob" class="form-label">Pekerjaan</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-briefcase"></i></span>
+                <select class="form-select with-icon" id="registerJob" required>
+                  <option value="" selected disabled>Pilih pekerjaan</option>
+                  <option value="mahasiswa">Mahasiswa</option>
+                  <option value="karyawan">Karyawan Swasta</option>
+                  <option value="pns">PNS</option>
+                  <option value="wiraswasta">Wiraswasta</option>
+                  <option value="lainnya">Lainnya</option>
+                </select>
+              </div>
+              <div class="invalid-feedback" id="jobFeedback">Pilih pekerjaan Anda</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="registerEmail" class="form-label">Email</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                <input type="email" class="form-control with-icon" id="registerEmail" placeholder="nama@contoh.com" required />
+              </div>
+              <div class="invalid-feedback" id="emailFeedback">Format email tidak valid (contoh: nama@contoh.com)</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="registerAddress" class="form-label">Alamat</label>
+              <div class="input-group">
+                <span class="input-group-text"><i class="fas fa-home"></i></span>
+                <textarea class="form-control with-icon" id="registerAddress" rows="2" placeholder="Masukkan alamat lengkap" required></textarea>
+              </div>
+              <div class="invalid-feedback" id="addressFeedback">Alamat harus minimal 10 karakter</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="registerPassword" class="form-label">Password</label>
+              <div class="password-container">
+                <div class="input-group">
+                  <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                  <input type="password" class="form-control with-icon" id="registerPassword" placeholder="Minimal 8 karakter" required />
+                </div>
+                <button type="button" class="password-toggle" id="toggleRegisterPassword">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+              <div class="form-note">Password harus mengandung huruf besar, huruf kecil, angka, dan minimal 8 karakter.</div>
+              <div class="invalid-feedback" id="passwordFeedback">Password tidak memenuhi persyaratan keamanan</div>
+            </div>
+
+            <div class="mb-3">
+              <label for="registerConfirmPassword" class="form-label">Konfirmasi Password</label>
+              <div class="password-container">
+                <div class="input-group">
+                  <span class="input-group-text"><i class="fas fa-lock"></i></span>
+                  <input type="password" class="form-control with-icon" id="registerConfirmPassword" placeholder="Ulangi password" required />
+                </div>
+                <button type="button" class="password-toggle" id="toggleRegisterConfirmPassword">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+              <div class="invalid-feedback" id="confirmPasswordFeedback">Konfirmasi password tidak sesuai</div>
+            </div>
+
+            <div class="mb-3 form-check">
+              <input type="checkbox" class="form-check-input" id="registerTerms" required />
+              <label class="form-check-label terms-text" for="registerTerms"> Saya menyetujui <a href="#">Syarat & Ketentuan</a> dan <a href="#">Kebijakan Privasi</a> </label>
+              <div class="invalid-feedback" id="termsFeedback">Anda harus menyetujui syarat dan ketentuan</div>
+            </div>
+
+            <button type="submit" class="btn btn-primary">
+              <span id="registerButtonText">Daftar Sekarang</span>
+              <div id="registerSpinner" class="spinner-border spinner-border-sm d-none" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </button>
+          </form>
+
+          <div class="auth-switch">Sudah punya akun? <a href="login.html">Login di sini</a></div>
+        </div>
+      </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="register.js"></script>
+  </body>
+</html>
